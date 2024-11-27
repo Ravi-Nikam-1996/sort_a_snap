@@ -19,6 +19,7 @@ urlpatterns = [
     path("edit-profile/<int:pk>/", UserProfileViewSet.as_view({'patch':'update'}), name="edit_profile"),
     path("delete-profile/<int:pk>/", UserProfileViewSet.as_view({'delete':'destroy'}), name="delete_profile"),
     path("get-profile/<int:pk>/", UserProfileViewSet.as_view({'get':'retrieve'}), name="get_profile"),
+    path("verified-user-retrived/",UserProfileViewSet.as_view({'post':'verified_user_retrived'}),name="verified_user_retrived"),
     
     
     path("get-family/", FamilyDataView.as_view({'get':'list'}), name="get_family"),
@@ -34,4 +35,6 @@ urlpatterns = [
     path("retrieve-contact-us/<int:pk>/", ContactusDataView.as_view({'get':'retrieve'}), name="retrieve_contact_us"),
     path("edit-contact-us/<int:pk>/", ContactusDataView.as_view({'patch':'update'}), name="edit_contact_us"),
     path("delete-contact-us/<int:pk>/", ContactusDataView.as_view({'delete':'destroy'}), name="delete_profile"),
+    
+    
 ]

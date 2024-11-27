@@ -30,10 +30,20 @@ class CustomGroup(models.Model):
             if not CustomGroup.objects.filter(code=code).exists():
                 return code
 
+class photo_group(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    group = models.ForeignKey(CustomGroup, on_delete=models.CASCADE)
+    photo_name = models.CharField(max_length=255,blank=True)
+    image = models.BinaryField(editable=True,blank=True,null=True)
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.photo_name or f"Photo {self.id}"
+    
 
 class GroupMember(models.Model):
     group = models.ForeignKey(CustomGroup, on_delete=models.CASCADE)
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  # Use AUTH_USER_MODEL here
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)  
     role = models.CharField(max_length=50,null=True,blank=True)
     user_verified = models.BooleanField(default=False) 
     joined_at = models.DateTimeField(auto_now_add=True)

@@ -2,7 +2,9 @@
 # from django.contrib.auth.models import Group as AuthGroup
 from django.contrib import admin
 from django.contrib.auth.models import User
-from groups.model.group import CustomGroup, GroupMember
+from groups.model.group import CustomGroup, GroupMember,photo_group
+from django.utils.html import format_html
+
 
 # Inline model for managing group members within the CustomGroup admin page
 class GroupMemberInline(admin.TabularInline):
@@ -30,7 +32,21 @@ class GroupMemberAdmin(admin.ModelAdmin):
     search_fields = ['id','group__name', 'user__username', 'role']
     list_filter = ['id','role']
     readonly_fields = ['id','joined_at']
-
+    
+    
+@admin.register(photo_group)
+class PhotoAdmin(admin.ModelAdmin):
+    list_display = ('id','photo_name','image', 'user', 'group', 'uploaded_at')
+    def image_preview(self, obj):
+        if obj.image:
+            return format_html('<img src="data:image/png;base64,{}" style="width: 100px; height: auto;" />',
+                               obj.image.decode('utf-8'))  
+        return "No Image"
+    
+    list_filter = ('group', 'uploaded_at')
+    search_fields = ('photo_name', 'user__email', 'group__name')
+    ordering = ('-uploaded_at',)
+    
 # Register models in admin
 admin.site.register(CustomGroup, CustomGroupAdmin)
 admin.site.register(GroupMember, GroupMemberAdmin)

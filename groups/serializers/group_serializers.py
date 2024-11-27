@@ -2,13 +2,12 @@ from rest_framework import serializers
 from django.contrib.auth.models import Group
 from django.contrib.auth import get_user_model
 from imagesense.serializers import UserProfileSerializer
-
+import base64
 from rest_framework import serializers
-from groups.model.group import CustomGroup, GroupMember
+from groups.model.group import CustomGroup, GroupMember,photo_group
 User = get_user_model()
 
 class GroupMemberSerializer(serializers.ModelSerializer):
-    # import ipdb;ipdb.set_trace()
     user = UserProfileSerializer()  # Assuming this is a nested serializer for user data
 
     class Meta:
@@ -18,23 +17,18 @@ class GroupMemberSerializer(serializers.ModelSerializer):
     
     
     def validate_group(self, value):
-        # Check if group exists
         if not CustomGroup.objects.filter(id=value.id).exists():
             raise serializers.ValidationError("Group does not exist.")
         return value
     
     
     def create(self, validated_data):
-        # Get the user by email
-        import ipdb;ipdb.set_trace()  
-
         user_email = validated_data.pop('user')
         try:
             user = get_user_model().objects.get(email=user_email)
         except get_user_model().DoesNotExist:
             raise serializers.ValidationError({"user": "User with this email does not exist."})
 
-        # Create the GroupMember instance
         group_member = GroupMember.objects.create(user=user, **validated_data)
         return group_member
     
@@ -230,3 +224,29 @@ class CustomGroupSerializer(serializers.ModelSerializer):
                 **common_fields,
             }
             return group_data
+        
+        
+class photo_serializer(serializers.ModelSerializer):
+    class Meta:
+        model = photo_group
+        fields = '__all__'
+    
+    def create(self, validated_data):
+        request = self.context.get('request')
+        image = request.FILES.get('image')
+        # import ipdb;ipdb.set_trace()
+        if image is None:
+            raise serializers.ValidationError({"image": "An image file is required."})
+        validated_data.pop('image', None)
+        try:
+            try:
+                group_member = photo_group.objects.create(**validated_data)
+                group_member.image = image.read()
+            except AttributeError:
+                raise serializers.ValidationError({"image": "Uploaded file is invalid or corrupted."})
+            group_member.save()
+            return group_member
+        except get_user_model().DoesNotExist:
+            raise serializers.ValidationError({"user": "User with this email does not exist."})
+
+    

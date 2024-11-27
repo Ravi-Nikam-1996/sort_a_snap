@@ -59,9 +59,7 @@ class FamilyDataView(viewsets.ModelViewSet):
                 'message': "Something went wrong!",
                 'error': str(e)
             }, status=status.HTTP_400_BAD_REQUEST)
-        
-        
-    
+
             
     def user_family(self, request, *args, **kwargs):
         user_email = self.request.query_params.get('user_email', None)

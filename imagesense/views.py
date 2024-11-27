@@ -160,9 +160,42 @@ class UserProfileViewSet(viewsets.ModelViewSet):
             return Response({'status': False, 'message': 'Data not found.'},status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
             return Response({'status': False, 'message': "something went wrong ! ", 'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
+        
+        
+    def verified_user_retrived(self, request, *args, **kwargs):
+        try:
+            phone_numbers = request.data.get("phone_no", [])
+            
+            if not phone_numbers or not isinstance(phone_numbers, list):
+                return Response({
+                    "status": False,
+                    "message": "Invalid or missing phone_numbers list.",
+                    "data": []
+                }, status=status.HTTP_400_BAD_REQUEST)
 
-
-
+            users = User.objects.filter(phone_no__in=phone_numbers, otp_status=True)
+            
+            if not users.exists():
+                return Response({
+                    "status": False,
+                    "message": "No users found with otp_status True.",
+                    "data": []
+                }, status=status.HTTP_204_NO_CONTENT)
+            
+            serializer = UserProfileSerializer(users, many=True, context={"request": request})
+            return Response({
+                "status": True,
+                "message": "Users with otp_status True.",
+                "data": serializer.data
+            }, status=status.HTTP_200_OK)
+        
+        except Exception as e:
+            return Response({
+                "status": False,
+                "message": "Something went wrong!",
+                "error": str(e)
+            }, status=status.HTTP_400_BAD_REQUEST) 
+        
 # class GenerateOTP(APIView):
 #     def post(self, request):
 #         serializer = OTPSerializer(data=request.data)
