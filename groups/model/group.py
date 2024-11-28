@@ -35,6 +35,7 @@ class photo_group(models.Model):
     group = models.ForeignKey(CustomGroup, on_delete=models.CASCADE)
     photo_name = models.CharField(max_length=255,blank=True)
     image = models.BinaryField(editable=True,blank=True,null=True)
+    image2 = models.ImageField(blank=True,null=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):

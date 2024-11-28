@@ -71,3 +71,7 @@ def flatten_errors(errors):
             flattened[field] = messages
     for field, message in flattened.items():
         return f'{field}: {message}'
+    
+    
+    
+ALLOWED_IMAGE_TYPES = ['image/jpeg', 'image/png']

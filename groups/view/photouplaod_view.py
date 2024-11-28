@@ -10,8 +10,8 @@ from django.contrib.auth import get_user_model
 from face.function_call import StandardResultsSetPagination,Global_error_message,check_required_fields
 import boto3
 from django.http import Http404
-
-
+from face.exceptions import CustomError
+from face.function_call import ALLOWED_IMAGE_TYPES
 User = get_user_model()
 
 rekognition_client = boto3.client('rekognition', region_name='us-west-2')  # Update the region as needed
@@ -124,22 +124,34 @@ class PhotoGroupViewSet(viewsets.ModelViewSet):
             if error_message:
                 return Response({"status": False, "message": error_message},status=status.HTTP_400_BAD_REQUEST)
             # import ipdb;ipdb.set_trace()
-            image_file = request.FILES['image']
+            # image_file = request.FILES['image']
+            image_file=request.FILES.getlist('image')
             if not image_file:
                 return Response({"status": False, "message": "Uploaded 'image' file is invalid"},
                                 status=status.HTTP_400_BAD_REQUEST)
-            try:
-                image_data = image_file.read()
-            except Exception as e:
-                return Response({"status": False, "message": f"Error reading 'image': {str(e)}"},
-                                status=status.HTTP_400_BAD_REQUEST)
+            response_data = []
+            for image in image_file:
+                if image.content_type not in ALLOWED_IMAGE_TYPES:
+                    return Response({"status": False, "message": f"Unsupported file type: {image.content_type}. Only JPG and PNG are allowed."},
+                                    status=status.HTTP_400_BAD_REQUEST)
+                    
+            for image in image_file:
+                try:
+                    image_data = image.read()
+                except Exception as e:
+                    return Response({"status": False, "message": f"Error reading 'image': {str(e)}"},
+                                    status=status.HTTP_400_BAD_REQUEST)
             
-            serializer = self.serializer_class(data=request.data,context={'request': request})
+            
+            data = request.data.copy()
+            data['image'] = image_file
+            serializer = self.serializer_class(data=data,context={'request': request})
             if serializer.is_valid():   
-                photo_group = serializer.save() 
+                photo_group = serializer.save()
+                photo_group.save()
                 # face_details = detect_faces(image_data)
                 # photo_group.face_details = str(face_details) 
-                photo_group.save()
+                # photo_group.save()
                 return Response({'status': True, 'message': 'Upload photo successfully'},status=status.HTTP_201_CREATED)
             else:
                 return Response({'status': False, 'message': 'Failed to upload photo', 'errors': serializer.errors},
@@ -152,40 +164,43 @@ class PhotoGroupViewSet(viewsets.ModelViewSet):
     
     def update(self, request, *args, **kwargs):
         try:
-            photo_group_id = kwargs.get('pk')  
-            photo_group = self.get_object()  
+            # Retrieve the instance to update
+            photo_group = self.get_object()
 
-            required_fields = ["photo_name", "image", "user", "group"]
-            error_message = check_required_fields(required_fields, request.data)
-            if error_message:
-                return Response({"status": False, "message": error_message}, status=status.HTTP_400_BAD_REQUEST)
+            # Check for duplicate photo group name if necessary
+            # photo_name = request.data.get('photo_name')
+            # if PhotoGroup.objects.filter(photo_name=photo_name).exclude(id=photo_group.id).exists():
+            #     return Response({"status": False, "message": "Photo name already exists."}, status=status.HTTP_400_BAD_REQUEST)
 
+            # Create a copy of request data and remove the file entry if it exists
+            data = request.data.copy()
             image_file = request.FILES.get('image', None)
+            data.pop('image', None)
             if image_file:
-                try:
-                    image_data = image_file.read()
-                except Exception as e:
-                    return Response({"status": False, "message": f"Error reading 'image': {str(e)}"},
+                if image_file.content_type not in ALLOWED_IMAGE_TYPES:
+                    return Response({"status": False, "message": f"Unsupported file type: {image_file.content_type}. Only JPG and PNG are allowed."},
                                     status=status.HTTP_400_BAD_REQUEST)
-            else:
-                if not image_file:
-                    return Response({"status": False, "message": "Uploaded 'image' file is invalid"},
-                                    status=status.HTTP_400_BAD_REQUEST)
-                photo_group.image = image_file
+  
+            serializer = self.serializer_class(photo_group, data=data, partial=True)
 
-            # Update other fields
-            photo_group.photo_name = request.data.get('photo_name', photo_group.photo_name)
-            photo_group.user_id = request.data.get('user', photo_group.user)
-            photo_group.group_id = request.data.get('group', photo_group.group)
+            if serializer.is_valid():
+                updated_photo_group = serializer.save()
+                if image_file:
+                    try:
+                        updated_photo_group.image = image_file.read()
+                        updated_photo_group.save()
+                    except Exception as e:
+                        return Response({"status": False, "message": f"Error reading 'image': {str(e)}"},
+                                        status=status.HTTP_400_BAD_REQUEST)
 
-            # Save the updated object
-            photo_group.save()
+                return Response({'status': True, 'message': 'Photo group updated successfully'}, status=status.HTTP_200_OK)
 
-            return Response({'status': True, 'message': 'Photo group updated successfully'}, status=status.HTTP_200_OK)
+            return Response({'status': False, 'message': 'Failed to update photo group', 'errors': serializer.errors},
+                            status=status.HTTP_400_BAD_REQUEST)
 
         except Exception as e:
             return Response({'status': False,
-                            'message': Global_error_message,
+                            'message': "An unexpected error occurred.",
                             'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
             
             

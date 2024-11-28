@@ -39,13 +39,6 @@ class GroupMemberSerializer(serializers.ModelSerializer):
     #     return super().create(validated_data)
     
     
-    
-    
-    
-    
-    
-    
-    
     # def validate_user(self, value):
     #     if not isinstance(value, dict):
     #         raise serializers.ValidationError("The 'user' field must be a dictionary.")
@@ -250,3 +243,34 @@ class photo_serializer(serializers.ModelSerializer):
             raise serializers.ValidationError({"user": "User with this email does not exist."})
 
     
+    
+    def update(self, instance, validated_data):
+        # Check if image data is provided and decode it
+        image_data = validated_data.get('image', None)
+        if image_data:
+            instance.image = base64.b64decode(image_data)
+        instance.photo_name = validated_data.get('photo_name', instance.photo_name)
+        instance.save()
+        return instance
+    
+    
+    # def update(self, instance, validated_data):
+    #     request = self.context.get('request')
+    #     image = request.FILES.get('image')
+    #     # import ipdb;ipdb.set_trace()
+    #     # Handle image file update
+    #     if image:
+    #         try:
+    #             binary_data = image.read()
+    #             instance.image = binary_data
+    #         except Exception as e:
+    #             raise serializers.ValidationError({"image": f"Error reading uploaded file: {str(e)}"})
+
+
+    #     # Update other fields
+    #     for attr, value in validated_data.items():
+    #         setattr(instance, attr, value)
+
+    #     # Save the updated instance
+    #     instance.save()
+    #     return instance
