@@ -10739,3 +10739,1187 @@ django.db.utils.IntegrityError: duplicate key value violates unique constraint "
 DETAIL:  Key (phone_no)=() already exists.
 
 ERROR 2024-11-21 06:12:35,410 basehttp "POST /api/group/create-customgroupmember-viewset/ HTTP/1.1" 500 191514
+ERROR 2024-11-28 08:55:30,535 log Internal Server Error: /admin/groups/photo_group/29/change/
+Traceback (most recent call last):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1964, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1865, in _changeform_view
+    form_validated = form.is_valid()
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/forms/forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/forms/forms.py", line 192, in errors
+    self.full_clean()
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/forms/forms.py", line 327, in full_clean
+    self._post_clean()
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/forms/models.py", line 498, in _post_clean
+    self.instance.full_clean(exclude=exclude, validate_unique=False)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 1618, in full_clean
+    self.clean_fields(exclude=exclude)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 1673, in clean_fields
+    setattr(self, f.attname, f.clean(raw_value, self))
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 830, in clean
+    value = self.to_python(value)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 2720, in to_python
+    return memoryview(b64decode(value.encode("ascii")))
+  File "/usr/lib/python3.10/base64.py", line 87, in b64decode
+    return binascii.a2b_base64(s)
+binascii.Error: Incorrect padding
+ERROR 2024-11-28 08:55:30,538 basehttp "POST /admin/groups/photo_group/29/change/ HTTP/1.1" 500 160727
+ERROR 2024-11-28 08:55:35,206 log Internal Server Error: /admin/groups/photo_group/29/change/
+Traceback (most recent call last):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1964, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1865, in _changeform_view
+    form_validated = form.is_valid()
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/forms/forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/forms/forms.py", line 192, in errors
+    self.full_clean()
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/forms/forms.py", line 327, in full_clean
+    self._post_clean()
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/forms/models.py", line 498, in _post_clean
+    self.instance.full_clean(exclude=exclude, validate_unique=False)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 1618, in full_clean
+    self.clean_fields(exclude=exclude)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 1673, in clean_fields
+    setattr(self, f.attname, f.clean(raw_value, self))
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 830, in clean
+    value = self.to_python(value)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/fields/__init__.py", line 2720, in to_python
+    return memoryview(b64decode(value.encode("ascii")))
+  File "/usr/lib/python3.10/base64.py", line 87, in b64decode
+    return binascii.a2b_base64(s)
+binascii.Error: Incorrect padding
+ERROR 2024-11-28 08:55:35,207 basehttp "POST /admin/groups/photo_group/29/change/ HTTP/1.1" 500 160787
+ERROR 2024-11-28 11:45:57,812 log Internal Server Error: /admin/groups/photo_group/33/change/
+Traceback (most recent call last):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column groups_photo_group.image2 does not exist
+LINE 1: ...roup"."photo_name", "groups_photo_group"."image", "groups_ph...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "groups_photo_group.image".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1964, in change_view
+    return self.changeform_view(request, object_id, form_url, extra_context)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1840, in _changeform_view
+    obj = self.get_object(request, unquote(object_id), to_field)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 896, in get_object
+    return queryset.get(**{field.name: object_id})
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/query.py", line 645, in get
+    num = len(clone)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column groups_photo_group.image2 does not exist
+LINE 1: ...roup"."photo_name", "groups_photo_group"."image", "groups_ph...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "groups_photo_group.image".
+
+ERROR 2024-11-28 11:45:57,814 basehttp "GET /admin/groups/photo_group/33/change/ HTTP/1.1" 500 188329
+ERROR 2024-11-28 11:46:00,248 log Internal Server Error: /admin/groups/photo_group/
+Traceback (most recent call last):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column groups_photo_group.image2 does not exist
+LINE 1: ...roup"."photo_name", "groups_photo_group"."image", "groups_ph...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "groups_photo_group.image".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 2140, in changelist_view
+    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column groups_photo_group.image2 does not exist
+LINE 1: ...roup"."photo_name", "groups_photo_group"."image", "groups_ph...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "groups_photo_group.image".
+
+ERROR 2024-11-28 11:46:00,248 basehttp "GET /admin/groups/photo_group/ HTTP/1.1" 500 181931
+ERROR 2024-11-28 11:46:04,833 log Internal Server Error: /admin/groups/photo_group/
+Traceback (most recent call last):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UndefinedColumn: column groups_photo_group.image2 does not exist
+LINE 1: ...roup"."photo_name", "groups_photo_group"."image", "groups_ph...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "groups_photo_group.image".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 2140, in changelist_view
+    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1574, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.ProgrammingError: column groups_photo_group.image2 does not exist
+LINE 1: ...roup"."photo_name", "groups_photo_group"."image", "groups_ph...
+                                                             ^
+HINT:  Perhaps you meant to reference the column "groups_photo_group.image".
+
+ERROR 2024-11-28 11:46:04,833 basehttp "GET /admin/groups/photo_group/ HTTP/1.1" 500 182059
+ERROR 2024-11-28 17:59:58,062 log Internal Server Error: /api/group/upload-group-photo/
+Traceback (most recent call last):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+  File "/home/iboon_laptop_18/AI/imagelens/groups/serializers/photo_upload_serializer.py", line 18, in create
+    return photo_group.objects.create(**validated_data)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 891, in save
+    self.save_base(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 997, in save_base
+    updated = self._save_table(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 1160, in _save_table
+    results = self._do_insert(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 1201, in _do_insert
+    return manager._insert(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+TypeError: can't escape InMemoryUploadedFile to binary
+ERROR 2024-11-28 17:59:58,064 basehttp "POST /api/group/upload-group-photo/ HTTP/1.1" 500 180683
+ERROR 2024-11-28 18:05:41,237 log Internal Server Error: /api/group/upload-group-photo/
+Traceback (most recent call last):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/groups/view/upload_photo_view.py", line 196, in create
+    serializer.save()
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+  File "/home/iboon_laptop_18/AI/imagelens/groups/serializers/photo_upload_serializer.py", line 18, in create
+    return photo_group.objects.create(**validated_data)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 891, in save
+    self.save_base(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 997, in save_base
+    updated = self._save_table(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 1160, in _save_table
+    results = self._do_insert(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 1201, in _do_insert
+    return manager._insert(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+TypeError: can't escape InMemoryUploadedFile to binary
+ERROR 2024-11-28 18:05:41,239 basehttp "POST /api/group/upload-group-photo/ HTTP/1.1" 500 175802
+ERROR 2024-11-28 18:05:42,483 log Internal Server Error: /api/group/upload-group-photo/
+Traceback (most recent call last):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/groups/view/upload_photo_view.py", line 196, in create
+    serializer.save()
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+  File "/home/iboon_laptop_18/AI/imagelens/groups/serializers/photo_upload_serializer.py", line 18, in create
+    return photo_group.objects.create(**validated_data)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 891, in save
+    self.save_base(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 997, in save_base
+    updated = self._save_table(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 1160, in _save_table
+    results = self._do_insert(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 1201, in _do_insert
+    return manager._insert(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+TypeError: can't escape InMemoryUploadedFile to binary
+ERROR 2024-11-28 18:05:42,483 basehttp "POST /api/group/upload-group-photo/ HTTP/1.1" 500 175802
+ERROR 2024-11-28 18:30:32,218 log Internal Server Error: /api/group/upload-group-photo/
+Traceback (most recent call last):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/groups/view/upload_photo_view.py", line 173, in create
+    if serializer.is_valid(raise_exception=True):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 442, in run_validation
+    value = self.to_internal_value(data)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 499, in to_internal_value
+    validated_value = field.run_validation(primitive_value)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 634, in run_validation
+    value = self.to_internal_value(data)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 693, in to_internal_value
+    validated = self.run_child_validation(item)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 653, in run_child_validation
+    return self.child.run_validation(data)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 442, in run_validation
+    value = self.to_internal_value(data)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 495, in to_internal_value
+    for field in fields:
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 378, in _writable_fields
+    for field in self.fields.values():
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 372, in fields
+    for key, value in self.get_fields().items():
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 1103, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 1249, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 1367, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `image` is not valid for model `PhotoGroupImage` in `groups.serializers.photo_upload_serializer.PhotoGroupImageSerializer`.
+ERROR 2024-11-28 18:30:32,220 basehttp "POST /api/group/upload-group-photo/ HTTP/1.1" 500 163727
+ERROR 2024-11-28 18:31:30,944 log Internal Server Error: /api/group/upload-group-photo/
+Traceback (most recent call last):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/groups/view/upload_photo_view.py", line 173, in create
+    if serializer.is_valid(raise_exception=True):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 442, in run_validation
+    value = self.to_internal_value(data)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 499, in to_internal_value
+    validated_value = field.run_validation(primitive_value)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 634, in run_validation
+    value = self.to_internal_value(data)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 693, in to_internal_value
+    validated = self.run_child_validation(item)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 653, in run_child_validation
+    return self.child.run_validation(data)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 442, in run_validation
+    value = self.to_internal_value(data)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 495, in to_internal_value
+    for field in fields:
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 378, in _writable_fields
+    for field in self.fields.values():
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 372, in fields
+    for key, value in self.get_fields().items():
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 1103, in get_fields
+    field_class, field_kwargs = self.build_field(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 1249, in build_field
+    return self.build_unknown_field(field_name, model_class)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 1367, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `image` is not valid for model `PhotoGroupImage` in `groups.serializers.photo_upload_serializer.PhotoGroupImageSerializer`.
+ERROR 2024-11-28 18:31:30,945 basehttp "POST /api/group/upload-group-photo/ HTTP/1.1" 500 163685
+ERROR 2024-11-28 18:42:34,408 log Internal Server Error: /api/group/upload-group-photo/
+Traceback (most recent call last):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/groups/view/upload_photo_view.py", line 173, in create
+    if serializer.is_valid(raise_exception=True):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 442, in run_validation
+    value = self.to_internal_value(data)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 495, in to_internal_value
+    for field in fields:
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 378, in _writable_fields
+    for field in self.fields.values():
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 372, in fields
+    for key, value in self.get_fields().items():
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 1079, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 1175, in get_field_names
+    assert field_name in fields, (
+AssertionError: The field 'images' was declared on serializer PhotoGroupSerializer, but has not been included in the 'fields' option.
+ERROR 2024-11-28 18:42:34,409 basehttp "POST /api/group/upload-group-photo/ HTTP/1.1" 500 138946
+ERROR 2024-11-28 18:42:41,412 log Internal Server Error: /api/group/upload-group-photo/
+Traceback (most recent call last):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/groups/view/upload_photo_view.py", line 173, in create
+    if serializer.is_valid(raise_exception=True):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 442, in run_validation
+    value = self.to_internal_value(data)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 495, in to_internal_value
+    for field in fields:
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 378, in _writable_fields
+    for field in self.fields.values():
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 372, in fields
+    for key, value in self.get_fields().items():
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 1079, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 1175, in get_field_names
+    assert field_name in fields, (
+AssertionError: The field 'images' was declared on serializer PhotoGroupSerializer, but has not been included in the 'fields' option.
+ERROR 2024-11-28 18:42:41,412 basehttp "POST /api/group/upload-group-photo/ HTTP/1.1" 500 138940
+ERROR 2024-11-28 18:42:48,631 log Internal Server Error: /api/group/upload-group-photo/
+Traceback (most recent call last):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/groups/view/upload_photo_view.py", line 173, in create
+    if serializer.is_valid(raise_exception=True):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 223, in is_valid
+    self._validated_data = self.run_validation(self.initial_data)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 442, in run_validation
+    value = self.to_internal_value(data)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 495, in to_internal_value
+    for field in fields:
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 378, in _writable_fields
+    for field in self.fields.values():
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 372, in fields
+    for key, value in self.get_fields().items():
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 1079, in get_fields
+    field_names = self.get_field_names(declared_fields, info)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 1175, in get_field_names
+    assert field_name in fields, (
+AssertionError: The field 'images' was declared on serializer PhotoGroupSerializer, but has not been included in the 'fields' option.
+ERROR 2024-11-28 18:42:48,631 basehttp "POST /api/group/upload-group-photo/ HTTP/1.1" 500 138946
+ERROR 2024-11-28 18:48:07,518 log Internal Server Error: /api/group/upload-group-photo/
+Traceback (most recent call last):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/groups/view/upload_photo_view.py", line 174, in create
+    serializer.save()
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+  File "/home/iboon_laptop_18/AI/imagelens/groups/serializers/photo_upload_serializer.py", line 27, in create
+    PhotoGroupImage.objects.create(photo_group=photo_group, **image_data)
+TypeError: django.db.models.query.QuerySet.create() argument after ** must be a mapping, not bytes
+ERROR 2024-11-28 18:48:07,520 basehttp "POST /api/group/upload-group-photo/ HTTP/1.1" 500 109069
+ERROR 2024-11-28 18:52:22,298 log Internal Server Error: /api/group/upload-group-photo/
+Traceback (most recent call last):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/groups/view/upload_photo_view.py", line 174, in create
+    serializer.save()
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+  File "/home/iboon_laptop_18/AI/imagelens/groups/serializers/photo_upload_serializer.py", line 26, in create
+    photogroup = photo_group.objects.create(**validated_data)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/query.py", line 677, in create
+    obj = self.model(**kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 564, in __init__
+    _setattr(self, prop, value)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/fields/related_descriptors.py", line 665, in __set__
+    raise TypeError(
+TypeError: Direct assignment to the reverse side of a related set is prohibited. Use images.set() instead.
+ERROR 2024-11-28 18:52:22,300 basehttp "POST /api/group/upload-group-photo/ HTTP/1.1" 500 128369
+ERROR 2024-11-29 06:45:19,333 log Internal Server Error: /admin/groups/photogroupimage/add/
+Traceback (most recent call last):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1961, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1871, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1294, in save_model
+    obj.save()
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 891, in save
+    self.save_base(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 997, in save_base
+    updated = self._save_table(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 1160, in _save_table
+    results = self._do_insert(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 1201, in _do_insert
+    return manager._insert(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1835, in execute_sql
+    for sql, params in self.as_sql():
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1758, in as_sql
+    value_rows = [
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1759, in <listcomp>
+    [
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1760, in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1708, in pre_save_val
+    return field.pre_save(obj, add=True)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/fields/files.py", line 338, in pre_save
+    file.save(file.name, file.file, save=False)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/fields/files.py", line 98, in save
+    name = self.field.generate_filename(self.instance, name)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/fields/files.py", line 353, in generate_filename
+    filename = self.upload_to(instance, filename)
+  File "/home/iboon_laptop_18/AI/imagelens/groups/model/group.py", line 37, in user_image_upload_path
+    return os.path.join(f'photos/{instance.user.email}', filename)
+AttributeError: 'PhotoGroupImage' object has no attribute 'user'
+ERROR 2024-11-29 06:45:19,337 basehttp "POST /admin/groups/photogroupimage/add/ HTTP/1.1" 500 200683
+ERROR 2024-11-29 06:45:56,603 log Internal Server Error: /admin/groups/photogroupimage/add/
+Traceback (most recent call last):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1961, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1871, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1294, in save_model
+    obj.save()
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 891, in save
+    self.save_base(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 997, in save_base
+    updated = self._save_table(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 1160, in _save_table
+    results = self._do_insert(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 1201, in _do_insert
+    return manager._insert(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1835, in execute_sql
+    for sql, params in self.as_sql():
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1758, in as_sql
+    value_rows = [
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1759, in <listcomp>
+    [
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1760, in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1708, in pre_save_val
+    return field.pre_save(obj, add=True)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/fields/files.py", line 338, in pre_save
+    file.save(file.name, file.file, save=False)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/fields/files.py", line 98, in save
+    name = self.field.generate_filename(self.instance, name)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/fields/files.py", line 353, in generate_filename
+    filename = self.upload_to(instance, filename)
+  File "/home/iboon_laptop_18/AI/imagelens/groups/model/group.py", line 37, in user_image_upload_path
+    return os.path.join(f'photos/{instance.user.email}', filename)
+AttributeError: 'PhotoGroupImage' object has no attribute 'user'
+ERROR 2024-11-29 06:45:56,604 basehttp "POST /admin/groups/photogroupimage/add/ HTTP/1.1" 500 200683
+ERROR 2024-11-29 06:46:22,807 log Internal Server Error: /admin/groups/photogroupimage/add/
+Traceback (most recent call last):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1961, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1871, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1294, in save_model
+    obj.save()
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 891, in save
+    self.save_base(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 997, in save_base
+    updated = self._save_table(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 1160, in _save_table
+    results = self._do_insert(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 1201, in _do_insert
+    return manager._insert(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1835, in execute_sql
+    for sql, params in self.as_sql():
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1758, in as_sql
+    value_rows = [
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1759, in <listcomp>
+    [
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1760, in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1708, in pre_save_val
+    return field.pre_save(obj, add=True)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/fields/files.py", line 338, in pre_save
+    file.save(file.name, file.file, save=False)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/fields/files.py", line 98, in save
+    name = self.field.generate_filename(self.instance, name)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/fields/files.py", line 353, in generate_filename
+    filename = self.upload_to(instance, filename)
+  File "/home/iboon_laptop_18/AI/imagelens/groups/model/group.py", line 37, in user_image_upload_path
+    return os.path.join(f'photos/{instance.user.email}', filename)
+AttributeError: 'PhotoGroupImage' object has no attribute 'user'
+ERROR 2024-11-29 06:46:22,809 basehttp "POST /admin/groups/photogroupimage/add/ HTTP/1.1" 500 200683
+ERROR 2024-11-29 06:47:50,027 log Internal Server Error: /admin/groups/photogroupimage/add/
+Traceback (most recent call last):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1961, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1871, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1294, in save_model
+    obj.save()
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 891, in save
+    self.save_base(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 997, in save_base
+    updated = self._save_table(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 1160, in _save_table
+    results = self._do_insert(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 1201, in _do_insert
+    return manager._insert(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1835, in execute_sql
+    for sql, params in self.as_sql():
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1758, in as_sql
+    value_rows = [
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1759, in <listcomp>
+    [
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1760, in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1708, in pre_save_val
+    return field.pre_save(obj, add=True)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/fields/files.py", line 338, in pre_save
+    file.save(file.name, file.file, save=False)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/fields/files.py", line 98, in save
+    name = self.field.generate_filename(self.instance, name)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/fields/files.py", line 353, in generate_filename
+    filename = self.upload_to(instance, filename)
+  File "/home/iboon_laptop_18/AI/imagelens/groups/model/group.py", line 37, in user_image_upload_path
+    user_email = instance.photo_group.user.email
+AttributeError: 'PhotoGroupImage' object has no attribute 'user'
+ERROR 2024-11-29 06:47:50,029 basehttp "POST /admin/groups/photogroupimage/add/ HTTP/1.1" 500 200626
+ERROR 2024-11-29 06:48:23,349 log Internal Server Error: /admin/groups/photogroupimage/add/
+Traceback (most recent call last):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1961, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1871, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1294, in save_model
+    obj.save()
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 891, in save
+    self.save_base(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 997, in save_base
+    updated = self._save_table(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 1160, in _save_table
+    results = self._do_insert(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 1201, in _do_insert
+    return manager._insert(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1835, in execute_sql
+    for sql, params in self.as_sql():
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1758, in as_sql
+    value_rows = [
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1759, in <listcomp>
+    [
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1760, in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1708, in pre_save_val
+    return field.pre_save(obj, add=True)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/fields/files.py", line 338, in pre_save
+    file.save(file.name, file.file, save=False)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/fields/files.py", line 98, in save
+    name = self.field.generate_filename(self.instance, name)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/fields/files.py", line 353, in generate_filename
+    filename = self.upload_to(instance, filename)
+  File "/home/iboon_laptop_18/AI/imagelens/groups/model/group.py", line 37, in user_image_upload_path
+    user_email = instance.photo_group.user.id
+AttributeError: 'PhotoGroupImage' object has no attribute 'user'
+ERROR 2024-11-29 06:48:23,350 basehttp "POST /admin/groups/photogroupimage/add/ HTTP/1.1" 500 200621
+ERROR 2024-11-29 06:49:09,739 log Internal Server Error: /admin/groups/photogroupimage/add/
+Traceback (most recent call last):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 718, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/sites.py", line 241, in inner
+    return view(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1961, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1820, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1871, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/contrib/admin/options.py", line 1294, in save_model
+    obj.save()
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 891, in save
+    self.save_base(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 997, in save_base
+    updated = self._save_table(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 1160, in _save_table
+    results = self._do_insert(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 1201, in _do_insert
+    return manager._insert(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1835, in execute_sql
+    for sql, params in self.as_sql():
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1758, in as_sql
+    value_rows = [
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1759, in <listcomp>
+    [
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1760, in <listcomp>
+    self.prepare_value(field, self.pre_save_val(field, obj))
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1708, in pre_save_val
+    return field.pre_save(obj, add=True)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/fields/files.py", line 338, in pre_save
+    file.save(file.name, file.file, save=False)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/fields/files.py", line 98, in save
+    name = self.field.generate_filename(self.instance, name)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/fields/files.py", line 353, in generate_filename
+    filename = self.upload_to(instance, filename)
+  File "/home/iboon_laptop_18/AI/imagelens/groups/model/group.py", line 37, in user_image_upload_path
+    print(instance)
+AttributeError: 'PhotoGroupImage' object has no attribute 'user'
+ERROR 2024-11-29 06:49:09,740 basehttp "POST /admin/groups/photogroupimage/add/ HTTP/1.1" 500 200554
+ERROR 2024-11-29 07:07:34,026 log Internal Server Error: /api/group/upload-group-photo/
+Traceback (most recent call last):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/groups/view/upload_photo_view.py", line 174, in create
+    serializer.save()
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+  File "/home/iboon_laptop_18/AI/imagelens/groups/serializers/photo_upload_serializer.py", line 28, in create
+    for image_data in images_data:
+TypeError: 'ListSerializer' object is not iterable
+ERROR 2024-11-29 07:07:34,027 basehttp "POST /api/group/upload-group-photo/ HTTP/1.1" 500 110327
+ERROR 2024-11-29 07:13:01,223 log Internal Server Error: /api/group/upload-group-photo/
+Traceback (most recent call last):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+psycopg2.errors.UniqueViolation: duplicate key value violates unique constraint "groups_photogroupimage_pkey"
+DETAIL:  Key (id)=(1) already exists.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/groups/view/upload_photo_view.py", line 174, in create
+    serializer.save()
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/rest_framework/serializers.py", line 208, in save
+    self.instance = self.create(validated_data)
+  File "/home/iboon_laptop_18/AI/imagelens/groups/serializers/photo_upload_serializer.py", line 30, in create
+    PhotoGroupImage.objects.create(photo_group=photogroup, **image_data)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 891, in save
+    self.save_base(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 997, in save_base
+    updated = self._save_table(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 1160, in _save_table
+    results = self._do_insert(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/base.py", line 1201, in _do_insert
+    return manager._insert(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/models/sql/compiler.py", line 1836, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/iboon_laptop_18/AI/imagelens/face_env/lib/python3.10/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+django.db.utils.IntegrityError: duplicate key value violates unique constraint "groups_photogroupimage_pkey"
+DETAIL:  Key (id)=(1) already exists.
+
+ERROR 2024-11-29 07:13:01,225 basehttp "POST /api/group/upload-group-photo/ HTTP/1.1" 500 190428
