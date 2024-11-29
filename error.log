@@ -11923,3 +11923,4 @@ django.db.utils.IntegrityError: duplicate key value violates unique constraint "
 DETAIL:  Key (id)=(1) already exists.
 
 ERROR 2024-11-29 07:13:01,225 basehttp "POST /api/group/upload-group-photo/ HTTP/1.1" 500 190428
+fgfgfgfg
