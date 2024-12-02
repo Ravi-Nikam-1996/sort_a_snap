@@ -9,9 +9,13 @@ from django_filters.rest_framework import DjangoFilterBackend
 from django.contrib.auth import get_user_model
 from face.function_call import StandardResultsSetPagination,Global_error_message,check_required_fields
 import boto3
+import base64
 from django.http import Http404
 from face.exceptions import CustomError
 from face.function_call import ALLOWED_IMAGE_TYPES
+from django.core.files.base import ContentFile
+from django.core.files.storage import default_storage
+from django.conf import settings
 User = get_user_model()
 
 rekognition_client = boto3.client('rekognition', region_name='us-west-2')  # Update the region as needed
@@ -30,6 +34,18 @@ def detect_faces(image_data):
         print(f"Error in Rekognition: {e}")
         return []
 
+
+def binary_to_url(instance, request):
+    try:
+        binary_data = instance.photo_image.tobytes()  # Convert memory view to bytes
+        file_path = f"images/photo_{instance.id}.jpg"  # Set the desired file path
+        if default_storage.exists(file_path):
+            default_storage.delete(file_path)  # Clean up old files
+        file_name = default_storage.save(file_path, ContentFile(binary_data))
+        url = request.build_absolute_uri(f"{settings.MEDIA_URL}{file_name}")
+        return url
+    except Exception as e:
+        return None
 
 class PhotoGroupViewSet(viewsets.ModelViewSet):
     queryset = photo_group.objects.all()
@@ -56,7 +72,7 @@ class PhotoGroupViewSet(viewsets.ModelViewSet):
             return Response({
                 "status": True,
                 "message": "Groups retrieved successfully.",
-                'data': serializer.data
+                 'data': {"user_data":serializer.data}
             }, status=status.HTTP_200_OK)
         except Exception as e:
             return Response({
@@ -223,8 +239,20 @@ class PhotoGroupViewSet(viewsets.ModelViewSet):
         try:
             instance = self.get_object()
             serializer = self.serializer_class(instance, context={'request': request})
-            return Response({'status': True, 'message': 'photo data retrieved successfully.', 'data': {"user":serializer.data}} ,status=status.HTTP_200_OK)
+            logo_image = instance.image
+            if logo_image:
+                logo_path = f"logo_image/{instance.id}.jpg"
+                if default_storage.exists(logo_path):
+                    default_storage.delete(logo_path)
+                default_storage.save(logo_path, ContentFile(logo_image))
+                logo_image_url = request.build_absolute_uri(settings.MEDIA_URL + logo_path)
+                data = serializer.data
+                data['logo_image_url'] = logo_image_url
+            else:
+                data = serializer.data
+                data['logo_image_url'] = None
+            return Response({'status': True, 'message': 'Facility data retrieved successfully.', 'data': data} ,status=status.HTTP_200_OK)
         except Http404:
-            return Response({'status': False, 'message': 'Data not found.'},status=status.HTTP_400_BAD_REQUEST)
+            return Response({'status': False, 'message': 'Facility not found.'},status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            return Response({'status': False, 'message': "something went wrong ! ", 'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'status': False, 'message': Global_error_message, 'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)

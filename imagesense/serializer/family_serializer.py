@@ -13,7 +13,6 @@ class FamilySerializer(serializers.ModelSerializer):
     def to_representation(self, instance):
         request = self.context.get('request')
         from_method = self.context.get('from_method', 'unknown')
-
         def get_common_fields(instance):
             """Helper function to extract common fields for all conditions."""
             return {
@@ -32,7 +31,6 @@ class FamilySerializer(serializers.ModelSerializer):
                 "relationship": instance.relationship,
                 "profile_image": instance.profile_image.url if instance.profile_image else None,
                 "user": {
-                    "id": user_data.id,
                     "email": user_data.email,
                     "first_name": user_data.first_name,
                     "last_name": user_data.last_name,

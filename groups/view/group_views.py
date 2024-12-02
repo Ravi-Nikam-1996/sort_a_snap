@@ -43,7 +43,7 @@ class CustomGroupViewSet(viewsets.ModelViewSet):
             return Response({
                 "status": True,
                 "message": "Groups retrieved successfully.",
-                'data': serializer.data
+                'data': {"user_data":serializer.data} 
             }, status=status.HTTP_200_OK)
         except Exception as e:
             return Response({

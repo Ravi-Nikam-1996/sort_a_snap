@@ -3,6 +3,7 @@ from django.db import models
 # from django.contrib.auth.models import User
 from django.conf import settings
 import random
+import os
 
 class CustomGroup(models.Model):
     ACCESS_CHOICES = [
@@ -30,17 +31,26 @@ class CustomGroup(models.Model):
             if not CustomGroup.objects.filter(code=code).exists():
                 return code
 
+# Function to generate the upload path for image2
+def user_image_upload_path(instance, filename):
+    # Ensure the directory structure is user-specific
+    user_email = instance.photo_group.user.email
+    return os.path.join(f'photos/{user_email}', filename)
+
 class photo_group(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     group = models.ForeignKey(CustomGroup, on_delete=models.CASCADE)
     photo_name = models.CharField(max_length=255,blank=True)
     image = models.BinaryField(editable=True,blank=True,null=True)
-    image2 = models.ImageField(blank=True,null=True)
     uploaded_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
         return self.photo_name or f"Photo {self.id}"
-    
+
+class PhotoGroupImage(models.Model):
+    photo_group = models.ForeignKey(photo_group, related_name='images', on_delete=models.CASCADE)
+    image2 = models.ImageField(upload_to=user_image_upload_path,blank=True,null=True)
+
 
 class GroupMember(models.Model):
     group = models.ForeignKey(CustomGroup, on_delete=models.CASCADE)

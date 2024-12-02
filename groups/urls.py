@@ -2,6 +2,7 @@ from django.urls import path
 from django.conf import settings
 from .view.group_views import CustomGroupViewSet,JoinGroupView
 from .view.photouplaod_view import PhotoGroupViewSet
+from .view.upload_photo_view import PhotoGroupView
 
 
 
@@ -16,10 +17,21 @@ urlpatterns = [
     path("photo-viewset-list/", PhotoGroupViewSet.as_view({'get':'list'}), name="photo_viewset_list"),
     path("photo-get-list/", PhotoGroupViewSet.as_view({'post':'get_list'}), name="photo_get_list"),
     path("get-group-wise-user/", PhotoGroupViewSet.as_view({'post':'get_group_wise_user'}), name="get_group_wise_user"),
-    path("upload-photo/", PhotoGroupViewSet.as_view({'post':'create'}), name="upload_photo"),
-    path("upload-photo/update/<int:pk>/", PhotoGroupViewSet.as_view({'patch':'update'}), name="update_upload_photo"),
-    path("upload-photo-delete/<int:pk>/", PhotoGroupViewSet.as_view({'delete':'destroy'}), name="upload_photo"),
-    path("upload-photo/retrieve/<int:pk>/", PhotoGroupViewSet.as_view({'get':'retrieve'}), name="update_upload_photo"),
+    
+    # do not use below 4 # working but not recomendate
+    # path("upload-photo/", PhotoGroupViewSet.as_view({'post':'create'}), name="upload_photo"),
+    # path("upload-photo/update/<int:pk>/", PhotoGroupViewSet.as_view({'patch':'update'}), name="update_upload_photo"),
+    # path("upload-photo-delete/<int:pk>/", PhotoGroupViewSet.as_view({'delete':'destroy'}), name="upload_photo"),
+    # path("upload-photo/retrieve/<int:pk>/", PhotoGroupViewSet.as_view({'get':'retrieve'}), name="update_upload_photo"),
+    
+    
+    # use this working PhotoGroupView for single and multiple bulk upload
+    path("photo-group-viewset-list/", PhotoGroupView.as_view({'get':'list'}), name="photo_viewset_list"),
+    path("upload-group-photo/", PhotoGroupView.as_view({'post':'create'}), name="group_upload_photo"),
+    path("upload-group-photo/update/<int:pk>/", PhotoGroupView.as_view({'patch':'update'}), name="update_group_upload_photo"),
+    path("upload-group-photo-delete/<int:pk>/", PhotoGroupView.as_view({'delete':'destroy'}), name="delete_group_photo"),
+    path("upload-group-photo/retrieve/<int:pk>/", PhotoGroupView.as_view({'get':'retrieve'}), name="group_retrive_photo"),
+    
     
     
     path("create-customgroupmember-viewset/", JoinGroupView.as_view({'post':'join'}), name="create_customgroupmember_viewset"),

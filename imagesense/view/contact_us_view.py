@@ -33,7 +33,7 @@ class ContactusDataView(viewsets.ModelViewSet):
             return Response({
                 "status": True,
                 "message": "Contact retrieved successfully.",
-                'data': serializer.data
+                'data': {"user_data":serializer.data} 
             }, status=status.HTTP_200_OK)
 
         except Exception as e:
