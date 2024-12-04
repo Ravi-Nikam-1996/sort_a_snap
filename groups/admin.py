@@ -2,7 +2,7 @@
 # from django.contrib.auth.models import Group as AuthGroup
 from django.contrib import admin
 from django.contrib.auth.models import User
-from groups.model.group import CustomGroup, GroupMember,photo_group,PhotoGroupImage
+from groups.model.group import CustomGroup, GroupMember,photo_group,PhotoGroupImage,sub_group
 from django.utils.html import format_html
 
 
@@ -55,6 +55,14 @@ class PhotoGroupImageAdmin(admin.ModelAdmin):
     list_display = ('id', 'photo_group', 'image2')  # Display related photo group and image
     list_filter = ('photo_group',)  # Filter by photo group
      # Enable search
+    
+
+@admin.register(sub_group)
+class SubGroupAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'main_group')
+    list_filter = ('main_group', )
+    search_fields = ('name',)
+    
     
     
 # Register models in admin

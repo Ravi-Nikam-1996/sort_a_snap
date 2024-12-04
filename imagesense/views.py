@@ -5,7 +5,7 @@ from django.contrib.auth import get_user_model
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .tasks import send_otp
+from .tasks import send_otp,user_otp
 from .serializers import OTPSerializer, UserProfileSerializer
 from rest_framework_simplejwt.tokens import RefreshToken,AccessToken
 from rest_framework.permissions import IsAuthenticated
@@ -23,42 +23,142 @@ class GenerateOTP(APIView):
     def post(self, request):
         serializer = OTPSerializer(data=request.data)
         if serializer.is_valid():
-            email = serializer.validated_data['email']
-            try:
-                user = User.objects.get(email=email)
-                if user.otp_status:
-                    refresh = RefreshToken.for_user(user)
-                    access_token = str(refresh.access_token)
-                    return Response({
-                        "message": "User already exists !!",
-                        "token": access_token
-                    }, status=status.HTTP_200_OK)
-                else:
-                    send_otp.delay(email)
-                    return Response({"message": f"OTP sent successfully to {email}"}, status=status.HTTP_200_OK)
-                
-            except User.DoesNotExist:
-                send_otp.delay(email) 
-                return Response({"message": f"OTP sent successfully to {email}"}, status=status.HTTP_200_OK)
+            email = serializer.validated_data.get('email')
+            phone = serializer.validated_data.get('phone_no')
+        #     if email:
+        #         user_with_email = User.objects.filter(email=email).first()
+        #         if user_with_email:
+        #             return Response({
+        #                 "message": "A user with this email already exists."
+        #             }, status=status.HTTP_400_BAD_REQUEST)
+
+        # # Check if a phone number is provided and if a user with that phone number already exists
+        #     if phone:
+        #         user_with_phone = User.objects.filter(phone_no=phone).first()
+        #         if user_with_phone:
+        #             return Response({
+        #                 "message": "A user with this phone number already exists."
+        #             }, status=status.HTTP_400_BAD_REQUEST)
         
+            if email:
+                # Email-specific flow
+                user = User.objects.filter(email=email).first()
+                if user:
+                    if user.otp_status_email:
+                        # User is verified by email
+                        refresh = RefreshToken.for_user(user)
+                        return Response({
+                            "message": "User already exists and is email-verified!",
+                            "data": {
+                                "token": {
+                                    "refresh": str(refresh),
+                                    "access": str(refresh.access_token),
+                                },
+                                "email": user.email,
+                            }
+                        }, status=status.HTTP_200_OK)
+                    else:
+                        # Resend email OTP
+                        send_otp.delay(email)
+                        return Response({
+                            "message": f"OTP sent to {email} for verification."
+                        }, status=status.HTTP_200_OK)
+                else:
+                    # New user: Send email OTP
+                    send_otp.delay(email)
+                    return Response({
+                        "message": f"OTP sent to {email}."
+                    }, status=status.HTTP_200_OK)
+
+            elif phone:
+                # Phone-specific flow
+                user = User.objects.filter(phone_no=phone).first()
+                if user:
+                    if user.otp_status:
+                        # User is verified by phone
+                        refresh = RefreshToken.for_user(user)
+                        return Response({
+                            "message": "User already exists and is phone-verified!",
+                            "data": {
+                                "token": {
+                                    "refresh": str(refresh),
+                                    "access": str(refresh.access_token),
+                                },
+                                "phone": user.phone_no,
+                            }
+                        }, status=status.HTTP_200_OK)
+                    else:
+                        # Resend phone OTP
+                        user_otp.delay(phone)
+                        return Response({
+                            "message": f"OTP sent to {phone} for verification."
+                        }, status=status.HTTP_200_OK)
+                else:
+                    # New user: Send phone OTP
+                    user_otp.delay(phone)
+                    return Response({
+                        "message": f"User not found. OTP sent to {phone}."
+                    }, status=status.HTTP_200_OK)
+
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class VerifyOTP(APIView):
     def post(self, request):
         email = request.data.get("email")
+        phone = request.data.get("phone_no")
         otp = request.data.get("otp")
-        cached_otp = cache.get(f"otp_{email}")
-
-        if cached_otp == int(otp):
-            user, _ = User.objects.get_or_create(email=email)
-            user.otp_status_email = True
-            user.save()
-            refresh = RefreshToken.for_user(user)
-            return Response({'status':True,'message':'Login successfully !!',
-                'data':{'refresh': str(refresh),'access': str(refresh.access_token),'email':user.email,'otp_status':user.otp_status}
-            }, status=status.HTTP_200_OK)
+        # import ipdb;ipdb.set_trace()
+        if not otp:
+            return Response({"message": "OTP is required."}, status=status.HTTP_400_BAD_REQUEST)
         
-        return Response({"message": "Invalid OTP"}, status=status.HTTP_400_BAD_REQUEST)
+        # Check email OTP
+        if email:
+            cached_otp = cache.get(f"otp_{email}")
+            if cached_otp == int(otp):
+                user, _ = User.objects.get_or_create(email=email)
+                user.otp_status_email = True
+                user.save()
+                
+                if user.otp_status_email:  # Check if both email and phone are verified
+                    refresh = RefreshToken.for_user(user)
+                    return Response({
+                        'status': True,
+                        'message': 'Login successfully !!',
+                        'data': {
+                            'refresh': str(refresh),
+                            'access': str(refresh.access_token),
+                            'email': user.email,
+                            'otp_status': user.otp_status_email,
+                            'phone_otp_status': user.otp_status,
+                        }
+                    }, status=status.HTTP_200_OK)
+                return Response({"message": "Email verified. Please verify your phone number as well."}, status=status.HTTP_200_OK)
+        
+        # Check phone OTP
+        if phone:
+            cached_otp = cache.get(f"otp_{phone}")
+            if cached_otp == int(otp):
+                user, _ = User.objects.get_or_create(phone_no=phone)
+                user.otp_status = True
+                user.save()
+                
+                if user.otp_status:  # Check if both email and phone are verified
+                    refresh = RefreshToken.for_user(user)
+                    return Response({
+                        'status': True,
+                        'message': 'Login successfully !!',
+                        'data': {
+                            'refresh': str(refresh),
+                            'access': str(refresh.access_token),
+                            'email': user.email,
+                            'phone': user.phone_no,
+                            'otp_status': user.otp_status_email,
+                            'phone_otp_status': user.otp_status,
+                        }
+                    }, status=status.HTTP_200_OK)
+                return Response({"message": "Phone number verified. Please verify your email as well."}, status=status.HTTP_200_OK)
+        
+        return Response({"message": "Invalid OTP or missing email/phone."}, status=status.HTTP_400_BAD_REQUEST)
 
 
 class LogoutView(viewsets.ModelViewSet):

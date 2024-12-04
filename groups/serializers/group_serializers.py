@@ -5,6 +5,7 @@ from imagesense.serializers import UserProfileSerializer
 import base64
 from rest_framework import serializers
 from groups.model.group import CustomGroup, GroupMember,photo_group
+from datetime import datetime
 User = get_user_model()
 
 class GroupMemberSerializer(serializers.ModelSerializer):
@@ -12,7 +13,7 @@ class GroupMemberSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = GroupMember
-        fields = ['id', 'group', 'user', 'role', 'joined_at', 'user_verified']
+        fields = ['id', 'group', 'user', 'role', 'joined_at', 'user_verified','created_at']
         read_only_fields = ['joined_at']
     
     
@@ -71,37 +72,37 @@ class GroupMemberSerializer(serializers.ModelSerializer):
     #     group_member = GroupMember.objects.create(**validated_data)
     #     return group_member
     
-    # def update(self, instance, validated_data):
-        # import ipdb;ipdb.set_trace()
-        user_data = validated_data.pop('user',{})
-        user_data.pop('email', None)
-        new_email = user_data.get('email', None)
-        phone_no = user_data.get('phone_no', None)
+    # # def update(self, instance, validated_data):
+    #     # import ipdb;ipdb.set_trace()
+    #     user_data = validated_data.pop('user',{})
+    #     user_data.pop('email', None)
+    #     new_email = user_data.get('email', None)
+    #     phone_no = user_data.get('phone_no', None)
 
       
-        if new_email and new_email != instance.email:
-            if User.objects.exclude(pk=instance.pk).filter(email=new_email).exists():
-                raise serializers.ValidationError("Email address must be unique.")
+    #     if new_email and new_email != instance.email:
+    #         if User.objects.exclude(pk=instance.pk).filter(email=new_email).exists():
+    #             raise serializers.ValidationError("Email address must be unique.")
             
-        if new_email and instance.user.email and instance.user.email != new_email:
-            raise serializers.ValidationError({"email": "Email cannot be updated once it's set."})
+    #     if new_email and instance.user.email and instance.user.email != new_email:
+    #         raise serializers.ValidationError({"email": "Email cannot be updated once it's set."})
 
         
-        if phone_no and instance.user.phone_no and instance.user.phone_no != phone_no:
-            raise serializers.ValidationError({"phone_no": "Phone number cannot be updated once it's set."})
+    #     if phone_no and instance.user.phone_no and instance.user.phone_no != phone_no:
+    #         raise serializers.ValidationError({"phone_no": "Phone number cannot be updated once it's set."})
 
         
-        for attr, value in user_data.items():
-            # if attr not in ['email', 'phone_no']: 
-            setattr(instance.user, attr, value)
+    #     for attr, value in user_data.items():
+    #         # if attr not in ['email', 'phone_no']: 
+    #         setattr(instance.user, attr, value)
         
-        instance.user.save()
+    #     instance.user.save()
         
-        instance.role = validated_data.get('role', instance.role)
-        instance.group = validated_data.get('group', instance.group)
-        instance.save()
+    #     instance.role = validated_data.get('role', instance.role)
+    #     instance.group = validated_data.get('group', instance.group)
+    #     instance.save()
 
-        return instance
+    #     return instance
     
     # def to_representation(self, instance):
     #     request = self.context.get('request')
@@ -167,23 +168,23 @@ class CustomGroupSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = CustomGroup
-        fields = ['id', 'name', 'access', 'thumbnail', 'members','code']
+        fields = ['id', 'name', 'access', 'thumbnail', 'members','code','created_by']
         read_only_fields = ['code'] 
         
     def to_representation(self, instance):
         request = self.context.get('request')
         from_method = self.context.get('from_method', 'unknown')
-
+        # import ipdb;ipdb.set_trace()
         def get_common_fields(instance):
             """Helper function to extract common fields for all conditions."""
             return {
                 "name": instance.name,
                 "access": instance.access,
-                "thumbnail": instance.thumbnail.url if instance.thumbnail else None
+                "thumbnail": instance.thumbnail.url if instance.thumbnail else None,
             }
 
         common_fields = get_common_fields(instance)
-
+        created_at_str = instance.created_at.strftime('%Y-%m-%d %H:%M:%S') if instance.created_at else None
         if request and request.method == 'GET':
             # If specific group details are requested
             group_data = {
@@ -205,7 +206,6 @@ class CustomGroupSerializer(serializers.ModelSerializer):
                 **common_fields,
             }
             return group_data
-
         else:
             # Default case: Provide basic group details
             group_data = {
@@ -213,7 +213,9 @@ class CustomGroupSerializer(serializers.ModelSerializer):
                 "name": instance.name,
                 "access": instance.access,
                 "code": instance.code,
+                "Created By":instance.created_by.email,
                 "thumbnail": instance.thumbnail.url if instance.thumbnail else None,
+                'created at': created_at_str,
                 **common_fields,
             }
             return group_data

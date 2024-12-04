@@ -9,8 +9,18 @@ logger = logging.getLogger(__name__)
 User = get_user_model()
 
 class OTPSerializer(serializers.Serializer):
-    email = serializers.EmailField()
-    
+    email = serializers.EmailField(required=False, allow_blank=True)
+    phone_no = serializers.CharField(required=False, allow_blank=True)
+
+    def validate(self, data):
+        email = data.get('email')
+        phone_no = data.get('phone_no')
+
+        # Ensure that either email or phone_no is provided, but not both
+        if (email and phone_no) or (not email and not phone_no):
+            raise serializers.ValidationError("Provide either email or phone number, but not both.")
+
+        return data
 
 class UserProfileSerializer(serializers.ModelSerializer):
     profile_image = serializers.ImageField(required=False)

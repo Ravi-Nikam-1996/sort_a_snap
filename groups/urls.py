@@ -13,6 +13,7 @@ urlpatterns = [
     path("get-customgroup-viewset-update/<int:pk>/", CustomGroupViewSet.as_view({'patch':'update'}), name="customgroup_viewset_update"),
     path("get-customgroup-viewset-delete/<int:pk>/", CustomGroupViewSet.as_view({'delete':'destroy'}), name="customgroup_viewset_delete"),
     path("get-customgroup-viewset-retrieve/<int:pk>/", CustomGroupViewSet.as_view({'get':'retrieve'}), name="customgroup_viewset_retrieve"),
+    path("get-customgroup-viewset-userlist/", CustomGroupViewSet.as_view({'get':'userlist'}), name="get-customgroup-viewset-userlist"),
     
     path("photo-viewset-list/", PhotoGroupViewSet.as_view({'get':'list'}), name="photo_viewset_list"),
     path("photo-get-list/", PhotoGroupViewSet.as_view({'post':'get_list'}), name="photo_get_list"),

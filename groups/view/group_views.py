@@ -29,6 +29,7 @@ class CustomGroupViewSet(viewsets.ModelViewSet):
     filterset_fields = ['name']
     search_fields = ['name']
 
+    
     def list(self, request, *args, **kwargs):
         queryset = self.filter_queryset(self.get_queryset())
         try:
@@ -56,11 +57,21 @@ class CustomGroupViewSet(viewsets.ModelViewSet):
         try:
             serializer = self.serializer_class(data=request.data)
             if serializer.is_valid():
+                group_name = serializer.validated_data.get('name')
+                existing_group = CustomGroup.objects.filter(name=group_name, created_by=request.user).first()
+                if existing_group:
+                    return Response({
+                        'status': False,
+                        'message': 'A group with this name already exists.',
+                        'id': existing_group.id
+                    }, status=status.HTTP_400_BAD_REQUEST)
+                    
                 group = serializer.save(created_by=request.user)  # Assuming the logged-in user creates the group
                 return Response({
                     'status': True,
                     'message': 'Group created successfully.',
-                    'id': group.id
+                    'id': group.id,
+                    'code':group.code
                 }, status=status.HTTP_201_CREATED)
             return Response({
                 'status': False,
@@ -128,7 +139,38 @@ class CustomGroupViewSet(viewsets.ModelViewSet):
                 'message': 'Error deleting group.',
                 'error': str(e)
             }, status=status.HTTP_400_BAD_REQUEST)
+            
+            
+    def userlist(self, request, *args, **kwargs):
+        userid = request.data.get('user')
+        if userid:
+            users=CustomGroup.objects.filter(created_by=userid)
+        else:
+            return Response({
+                'status': False,
+                'message': "user is required !!",
+            }, status=status.HTTP_400_BAD_REQUEST)
 
+        try:
+            if not users.exists():
+                return Response({
+                    "status": False,
+                    "message": "No groups found for the user!",
+                    'data': []
+                }, status=status.HTTP_204_NO_CONTENT)
+                
+            serializer = self.serializer_class(users, many=True)
+            return Response({
+                "status": True,
+                "message": "User-specific groups retrieved successfully.",
+                'data': {"user_data": serializer.data} 
+            }, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({
+                'status': False,
+                'message': "Something went wrong!",
+                'error': str(e)
+            }, status=status.HTTP_400_BAD_REQUEST)
 
 # class GroupMemberViewSet(viewsets.ModelViewSet):
 #     queryset = GroupMember.objects.all()
@@ -352,7 +394,7 @@ class JoinGroupView(viewsets.ModelViewSet):
         
     def user_verify(self,request):
         try:
-            mobile_number = request.data.get('mobile_number')
+            mobile_number = request.data.get('phone_no')
             if not mobile_number:
                 return Response({
                     'status': False,
@@ -373,7 +415,7 @@ class JoinGroupView(viewsets.ModelViewSet):
             }, status=status.HTTP_400_BAD_REQUEST)
     
     def user_confirm(self, request):
-        mobile_number = request.data.get("mobile_number")
+        mobile_number = request.data.get("phone_no")
         otp = request.data.get("otp")   
         cached_otp = cache.get(f"otp_{mobile_number}")
         if cached_otp == int(otp):
@@ -448,7 +490,7 @@ class JoinGroupView(viewsets.ModelViewSet):
         group_code = user_data.get('code') 
         # phone_no = request.data.get('phone_no')  # Get phone_no from request
         # group_code = request.data.get('code')  # Get code from request
-
+        # import ipdb;ipdb.set_trace()
         user = request.user if request.user.is_authenticated else None
 
         if group_code:
@@ -472,33 +514,30 @@ class JoinGroupView(viewsets.ModelViewSet):
                 user.save()
 
         elif phone_no:
-            # If phone_no is provided, create a user with the phone number and assign to a group
+            
             try:
                 user = get_user_model().objects.get(phone_no=phone_no)
             except get_user_model().DoesNotExist:
-                # If the user doesn't exist, create a new user
-                random_suffix = random.randint(1000, 9999)  # Random suffix for the email
+               
+                random_suffix = random.randint(1000, 9999)  
                 email = f"guest{random_suffix}@example.com"
-                
-                # Create a new user with the phone_no and random email
+
                 user = get_user_model().objects.create(
                     email=email,
                     phone_no=phone_no
                 )
                 user.is_active = True
                 user.save()
-            
-            # Use any logic you need to find the group for the user (this is just a placeholder)
-            group = CustomGroup.objects.first()  # Adjust as needed to find the appropriate group
+
+            group = CustomGroup.objects.first() 
 
         else:
             return Response({"detail": "No code or phone number provided."}, status=status.HTTP_400_BAD_REQUEST)
 
-        # Proceed with adding the user to the group if they are not already a member
+        
         if GroupMember.objects.filter(group=group, user=user).exists():
             return Response({"detail": "User is already a member of this group."}, status=status.HTTP_400_BAD_REQUEST)
 
-        # Assign role: "Guest" if not authenticated, "Member" if authenticated
         role = "Member" if user.is_authenticated else "Guest"
         
         # Create the group member entry
